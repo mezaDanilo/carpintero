@@ -25,9 +25,15 @@ public class Puerta {
 		return this.estadoPuerta;
 	}
 	
-	public void abrirPuerta(Cerradura c1, Cerradura c2, Cerradura c3) {
-		this.estadoPuerta = true;
-	}
+	public Boolean intentoDeAbrirLaPuerta(String contraseñaIngresadaC1, String contraseñaIngresadaC2, String contraseñaIngresadaC3) {
+		if((this.c1.verSiLaContraseñaIngresadaEsCorrecta(contraseñaIngresadaC1)) && 
+			(this.c2.verSiLaContraseñaIngresadaEsCorrecta(contraseñaIngresadaC2)) &&
+			(this.c3.verSiLaContraseñaIngresadaEsCorrecta(contraseñaIngresadaC3))){
+				this.estadoPuerta = true;
+				return true;
+			} 
+			return false;
+		}
 	
 	public void cerrarPuerta() {
 		this.estadoPuerta = false;
