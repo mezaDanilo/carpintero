@@ -27,5 +27,10 @@ public class Cerradura {
 	public void cerrarCerradura() {
 		this.estadoCerradura = false;
 	}
+
+	public Boolean getEstadoCerradura() {
+		return estadoCerradura;
+	}
+	
 	
 }

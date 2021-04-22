@@ -48,7 +48,7 @@ public class puertaTest {
 	}
 
 	@Test
-	public void testVerQueLaPuertaNoSeAbraConLasContraseñasIncorrectas() {
+	public void testVerQueLaPuertaNoSeAbraConLaPrimerContraseñaIncorrecta() {
 		///Preparacion
 		Cerradura c1 = new Cerradura("1");
 		Cerradura c2 = new Cerradura("12");
@@ -61,6 +61,37 @@ public class puertaTest {
 		///Ejecucion
 		assertFalse(puerta.estaLaPuertaAbierta());
 	}
+	
+	@Test
+	public void testVerQueLaPuertaNoSeAbraConLaSegundaContraseñaIncorrecta() {
+		///Preparacion
+		Cerradura c1 = new Cerradura("1");
+		Cerradura c2 = new Cerradura("12");
+		Cerradura c3 = new Cerradura("123");
+		Puerta puerta = new Puerta(c1, c2, c3);
+		
+		///
+		puerta.intentoDeAbrirLaPuerta("1", "120","123");
+		
+		///Ejecucion
+		assertFalse(puerta.estaLaPuertaAbierta());
+	}
+	
+	@Test
+	public void testVerQueLaPuertaNoSeAbraConLaTercerContraseñaIncorrecta() {
+		///Preparacion
+		Cerradura c1 = new Cerradura("1");
+		Cerradura c2 = new Cerradura("12");
+		Cerradura c3 = new Cerradura("123");
+		Puerta puerta = new Puerta(c1, c2, c3);
+		
+		///
+		puerta.intentoDeAbrirLaPuerta("1", "12","1230");
+		
+		///Ejecucion
+		assertFalse(puerta.estaLaPuertaAbierta());
+	}
+	
 	
 	@Test
 	public void testCerrarPuerta() {
@@ -76,5 +107,5 @@ public class puertaTest {
 		///Ejecucion
 		assertFalse(puerta.estaLaPuertaAbierta());		
 	}
-	
+		
 }
